@@ -1,4 +1,4 @@
-import './message.css';
+import './Message.css';
 
 export default function Message ({id, text}) {
     return (
