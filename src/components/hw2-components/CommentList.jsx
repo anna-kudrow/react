@@ -15,12 +15,13 @@ function CommentsList() {
     ]);
 
     const deleteComment = (e) => {
-        setComments(comments.filter(comment => {!comment.id === e.target.id}))
+        setComments(comments.filter(comment => e.target.id != comment.id))
     }
 
     return (
         <>
-            {comments.map(comment => <li key={comment.id}><span style={{marginRight: 10}}>{comment.text}</span><button id={comment.id} onClick={deleteComment}>delete</button> </li>)}
+            {comments.map(comment => <li key={comment.id}><span style={{marginRight: 10}}>{comment.text}</span>
+            <button id={comment.id} onClick={deleteComment}>delete</button> </li>)}
         </>
      );
 }
