@@ -3,6 +3,8 @@
 
 // Можно использовать заготовку:
 
+import './CommentList.css'
+
 
 import { useState } from "react";
 
@@ -19,10 +21,10 @@ function CommentsList() {
     }
 
     return (
-        <>
+        <ul>
             {comments.map(comment => <li key={comment.id}><span style={{marginRight: 10}}>{comment.text}</span>
             <button id={comment.id} onClick={deleteComment}>delete</button> </li>)}
-        </>
+        </ul>
      );
 }
 
