@@ -16,14 +16,17 @@ function CommentsList() {
         { id: 3, text: "Это третий комментарий" }
     ]);
 
-    const deleteComment = (e) => {
-        setComments(comments.filter(comment => e.target.id != comment.id))
+
+    
+
+    const deleteComment = (id) => {
+        setComments(comments.filter(comment => comment.id !== id))
     }
 
     return (
         <ul>
             {comments.map(comment => <li key={comment.id}><span style={{marginRight: 10}}>{comment.text}</span>
-            <button id={comment.id} onClick={deleteComment}>delete</button> </li>)}
+            <button onClick={() => deleteComment(comment.id)}>delete</button> </li>)}
         </ul>
      );
 }
