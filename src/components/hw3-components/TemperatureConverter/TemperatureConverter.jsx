@@ -27,13 +27,27 @@ function TemperatureConverter() {
     } 
 
     function handleStatus (e) {
-        e.target.name === 'celsius' ? setActiveCelcius(true) : setActiveCelcius(false)
-        e.target.name === 'fahrenheit' ? setActiveFahrenheit(true) : setActiveFahrenheit(false)
+        e.target.name === 'celsius' ? setActiveCelcius(true) : setActiveCelcius(false);
+        e.target.name === 'fahrenheit' ? setActiveFahrenheit(true) : setActiveFahrenheit(false);
     }
 
     function handleReset () {
         setActiveCelcius(true);
         setActiveFahrenheit(true);
+        setCelsiusValue(0);
+        setFahrenheitValue(0);
+    }
+
+    function handleConvert () {
+        if (celciusValue !== 0) {
+            setActiveFahrenheit(true);
+            setFahrenheitValue(celciusValue * 1.8 + 32);
+            console.log(fahrenheitValue);
+        } else if (fahrenheitValue !== 0) {
+            setActiveCelcius(true);
+            setCelsiusValue((fahrenheitValue - 32) / 1.8);
+            console.log(celciusValue);
+        }
     }
 
     return ( 
@@ -50,12 +64,12 @@ function TemperatureConverter() {
                         },
                      }}
                 />
-            :   <TextField
-          disabled
-          id="filled-disabled"
-          defaultValue="Hello World"
-          variant="filled"
-        /> }
+                :<TextField
+                    disabled
+                    id="filled-disabled"
+                    defaultValue="Hello World"
+                    variant="filled"
+                /> }
                   
                 {activeFahrenheit ? 
                 <TextField
@@ -70,20 +84,19 @@ function TemperatureConverter() {
                     }}
                 />
                 : <TextField
-          disabled
-          id="filled-disabled"
-          defaultValue="Hello World"
-          variant="filled"
-        />
-             }
-            </div>
-            <div className="buttons">
-                <Button className='btn' variant="contained" color="success">Convert</Button>
-                <Button className='btn' onClick={handleReset}variant="contained" color="success">Reset</Button>
-            </div>
-            
+                    disabled
+                    id="filled-disabled"
+                    defaultValue="Hello World"
+                    variant="filled"
+                    />
+                }
+                </div>
+                <div className="buttons">
+                    <Button className='btn' onClick={handleConvert} variant="contained" color="success">Convert</Button>
+                    <Button className='btn' onClick={handleReset} variant="contained" color="success">Reset</Button>
+                </div>
         </div>
-     )
+    )
 }
 
 export default TemperatureConverter;
