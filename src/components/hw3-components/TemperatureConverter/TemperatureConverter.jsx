@@ -42,11 +42,9 @@ function TemperatureConverter() {
         if (celciusValue !== 0) {
             setActiveFahrenheit(true);
             setFahrenheitValue(celciusValue * 1.8 + 32);
-            console.log(fahrenheitValue);
         } else if (fahrenheitValue !== 0) {
             setActiveCelcius(true);
             setCelsiusValue((fahrenheitValue - 32) / 1.8);
-            console.log(celciusValue);
         }
     }
 
@@ -68,6 +66,7 @@ function TemperatureConverter() {
                     disabled
                     id="filled-disabled"
                     variant="filled"
+                    value={celciusValue}
                 /> }
                   
                 {activeFahrenheit ? 
@@ -86,6 +85,7 @@ function TemperatureConverter() {
                     disabled
                     id="filled-disabled"
                     variant="filled"
+                    value={fahrenheitValue}
                     />
                 }
                 </div>
