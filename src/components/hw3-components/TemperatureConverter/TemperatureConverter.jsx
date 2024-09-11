@@ -67,7 +67,6 @@ function TemperatureConverter() {
                 :<TextField
                     disabled
                     id="filled-disabled"
-                    defaultValue="Hello World"
                     variant="filled"
                 /> }
                   
@@ -86,7 +85,6 @@ function TemperatureConverter() {
                 : <TextField
                     disabled
                     id="filled-disabled"
-                    defaultValue="Hello World"
                     variant="filled"
                     />
                 }
